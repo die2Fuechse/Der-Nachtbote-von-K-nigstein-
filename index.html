@@ -7,120 +7,221 @@
     <title>Der letzte Bote von Königstein</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            background: #080b0f;
+            background:
+                radial-gradient(circle at 50% 0%, #1b2430 0%, #080b0f 45%, #050608 100%);
             color: #ddd;
             font-family: Georgia, "Times New Roman", serif;
             line-height: 1.7;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 720px;
             margin: auto;
-            padding: 35px 22px 60px;
+            padding: 28px 20px 60px;
+        }
+
+        /* Kopfbereich */
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .moon {
+            font-size: 3rem;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 0 12px rgba(214, 194, 138, 0.4));
         }
 
         h1 {
-            text-align: center;
             color: #d6c28a;
-            font-size: 2.1rem;
-            margin-bottom: 5px;
+            font-size: 2rem;
+            line-height: 1.2;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            color: #888;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* Fortschritt */
+
+        .progress {
+            display: flex;
+            justify-content: center;
+            gap: 9px;
+            margin: 25px 0 35px;
+        }
+
+        .dot {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            border: 1px solid #777;
+            background: #15191e;
+        }
+
+        .dot.active {
+            background: #d6c28a;
+            border-color: #d6c28a;
+            box-shadow: 0 0 10px rgba(214, 194, 138, 0.5);
+        }
+
+        /* Inhalt */
+
+        .card {
+            background: rgba(16, 21, 27, 0.94);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
         }
 
         h2 {
             color: #d6c28a;
             font-weight: normal;
+            margin-top: 0;
             border-bottom: 1px solid #454545;
-            padding-bottom: 8px;
+            padding-bottom: 9px;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #888;
+        .date {
+            color: #999;
             font-style: italic;
-            margin-bottom: 40px;
-        }
-
-        .story {
-            background: #10151b;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.5);
         }
 
         .quote {
             border-left: 3px solid #d6c28a;
-            padding-left: 18px;
-            color: #cfcfcf;
+            padding-left: 17px;
+            color: #ccc;
             font-style: italic;
+            margin: 22px 0;
         }
 
+        .poem {
+            text-align: center;
+            font-style: italic;
+            color: #d0d0d0;
+            line-height: 2;
+            margin: 25px 0;
+        }
+
+        .important {
+            color: #d6c28a;
+            font-weight: bold;
+        }
+
+        /* Rätsel */
+
         .puzzle {
-            background: #111820;
-            border: 1px solid #454545;
-            border-radius: 10px;
-            padding: 24px;
-            margin-top: 30px;
+            background: rgba(12, 17, 22, 0.95);
+        }
+
+        .puzzle-intro {
+            color: #aaa;
         }
 
         input {
             width: 100%;
-            box-sizing: border-box;
-            padding: 14px;
-            margin-top: 12px;
+            padding: 15px;
+            margin-top: 10px;
             background: #080b0f;
-            color: white;
+            color: #fff;
             border: 1px solid #666;
-            border-radius: 6px;
+            border-radius: 7px;
+            font-family: Georgia, "Times New Roman", serif;
             font-size: 1.1rem;
             text-transform: uppercase;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #d6c28a;
+            box-shadow: 0 0 8px rgba(214, 194, 138, 0.2);
         }
 
         button {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             margin-top: 12px;
             background: #6d5b32;
-            color: white;
+            color: #fff;
             border: none;
-            border-radius: 6px;
+            border-radius: 7px;
+            font-family: Georgia, "Times New Roman", serif;
             font-size: 1.05rem;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #85703e;
+        button:active {
+            transform: scale(0.99);
         }
 
         #wrong {
             display: none;
-            color: #d77;
+            color: #d88989;
             margin-top: 15px;
+            text-align: center;
         }
 
         #success {
             display: none;
-            background: #111c16;
+            background: rgba(17, 28, 22, 0.95);
             border: 1px solid #536b59;
-            border-radius: 10px;
-            padding: 24px;
+            border-radius: 12px;
+            padding: 25px;
             margin-top: 25px;
+            box-shadow: 0 0 25px rgba(60, 100, 70, 0.12);
+        }
+
+        .success-title {
+            color: #a9c7ad;
         }
 
         .light {
             text-align: center;
-            font-size: 2rem;
-            margin: 30px 0;
+            font-size: 2.5rem;
+            margin: 25px 0;
+        }
+
+        .reflektor {
+            text-align: center;
+            color: #d6c28a;
+            font-size: 1.15rem;
+            margin: 25px 0;
         }
 
         .footer {
             text-align: center;
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 50px;
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 45px;
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                padding: 22px 15px 45px;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -129,19 +230,39 @@
 
 <div class="container">
 
-    <h1>Der letzte Bote von Königstein</h1>
+    <header class="header">
 
-    <div class="subtitle">
-        Nachtcache · Station 1
+        <div class="moon">🌙</div>
+
+        <h1>Der letzte Bote von Königstein</h1>
+
+        <div class="subtitle">
+            Nachtcache · Station 1
+        </div>
+
+    </header>
+
+
+    <!-- Fortschrittsanzeige -->
+
+    <div class="progress" aria-label="Fortschritt">
+
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
     </div>
 
-    <div class="light">🌙</div>
 
-    <div class="story">
+    <!-- Geschichte -->
+
+    <section class="card">
 
         <h2>Der erste Funke</h2>
 
-        <p>
+        <p class="date">
             Königstein, Oktober 1813.
         </p>
 
@@ -153,7 +274,7 @@
 
         <p>
             Ein junger Mann hastet durch die Dunkelheit.
-            Sein Name ist Johann Elias Weber.
+            Sein Name ist <strong>Johann Elias Weber</strong>.
         </p>
 
         <p>
@@ -173,9 +294,9 @@
             Dann ein zweites.
         </p>
 
-        <p class="quote">
+        <div class="quote">
             „Sie haben mich gefunden.“
-        </p>
+        </div>
 
         <p>
             Johann greift in seine Tasche und zieht den Brief hervor.
@@ -197,42 +318,42 @@
             suchen würde, der weiß, dass er existiert.
         </p>
 
-        <p class="quote">
+        <div class="quote">
             „Wenn du diese Nachricht lesen kannst,
             hast du meine erste Spur gefunden.“
-        </p>
+        </div>
 
         <p>
-            Dann schreibt Johann auf die Rückseite des ersten Hinweises:
+            Auf die Rückseite des ersten Hinweises schreibt Johann:
         </p>
 
-        <p class="quote">
+        <div class="poem">
             Nichts ist zu sehen.<br>
             Aber etwas wartet.<br>
             Chaos wird zu Ordnung.<br>
             Hat man die richtige Richtung,<br>
             Taucht der erste Weg auf.
-        </p>
+        </div>
 
         <p>
             Johann wusste, dass sein Verfolger die Nachricht finden könnte.
             Deshalb versteckte er die Lösung nicht im Text selbst.
         </p>
 
-        <p>
-            <strong>
-                Suche nach dem, was am Anfang jeder Zeile steht.
-            </strong>
+        <p class="important">
+            Suche nach dem, was am Anfang jeder Zeile steht.
         </p>
 
-    </div>
+    </section>
 
 
-    <div class="puzzle">
+    <!-- Rätsel -->
+
+    <section class="card puzzle">
 
         <h2>Die erste Spur</h2>
 
-        <p>
+        <p class="puzzle-intro">
             Welches Wort ergibt sich aus den Anfangsbuchstaben
             der fünf Zeilen?
         </p>
@@ -240,8 +361,9 @@
         <input
             type="text"
             id="answer"
-            placeholder="Lösungswort eingeben"
+            placeholder="Lösungswort"
             autocomplete="off"
+            autocapitalize="characters"
         >
 
         <button onclick="checkAnswer()">
@@ -249,66 +371,67 @@
         </button>
 
         <div id="wrong">
-            Das ist nicht die richtige Lösung.
+            Das ist nicht die richtige Lösung.<br>
             Johann würde sagen: „Suche genauer.“
         </div>
 
-    </div>
+    </section>
 
 
-    <div id="success">
+    <!-- Freigeschalteter Bereich -->
 
-        <h2>Die Spur ist gefunden.</h2>
+    <section id="success">
+
+        <h2 class="success-title">
+            Die erste Spur ist gefunden.
+        </h2>
 
         <p>
             Die fünf Buchstaben ergeben:
         </p>
 
-        <p class="quote">
+        <div class="quote">
             N · A · C · H · T
-        </p>
+        </div>
 
         <p>
             Du hast die erste Nachricht entschlüsselt.
         </p>
 
         <p>
-            Doch Johann hat keinen weiteren Hinweis
-            hinterlassen.
+            Doch Johann hat keinen weiteren Hinweis hinterlassen.
         </p>
 
         <p>
             Stattdessen steht dort nur:
         </p>
 
-        <p class="quote">
+        <div class="quote">
             „Nun wird es Zeit, die Dunkelheit zu durchsuchen.“
-        </p>
+        </div>
 
-        <p>
-            Schalte deine Taschenlampe ein.
-        </p>
+        <div class="light">
+            🔦
+        </div>
 
-        <p>
-            Suche den ersten Lichtpunkt.
-        </p>
+        <div class="reflektor">
+            Schalte deine Taschenlampe ein.<br>
+            Suche den ersten Lichtpunkt.<br><br>
 
-        <p>
-            <strong>
-                Folge der Reflektorstrecke.
-            </strong>
-        </p>
+            <strong>Folge der Reflektorstrecke.</strong>
+        </div>
 
         <p>
             Wenn du das nächste Licht gefunden hast,
             wartet dort die zweite Spur des Nachtboten.
         </p>
 
-    </div>
+    </section>
 
 
     <div class="footer">
-        Der letzte Bote von Königstein · Station 1
+        Der letzte Bote von Königstein<br>
+        Station 1
     </div>
 
 </div>
@@ -316,25 +439,133 @@
 
 <script>
 
-function checkAnswer() {
+    /*
+     * ============================================
+     * DER LETZTE BOTE VON KÖNIGSTEIN
+     * Stationssystem
+     * ============================================
+     *
+     * Aktuell:
+     * Station 1
+     *
+     * Später:
+     * Station 2
+     * Station 3
+     * Station 4
+     * Station 5
+     */
 
-    const answer =
-        document.getElementById("answer").value
-        .trim()
-        .toUpperCase();
 
-    if (answer === "NACHT") {
+    const STATION = 1;
 
-        document.getElementById("success").style.display = "block";
-        document.getElementById("wrong").style.display = "none";
+    const SOLUTION = "NACHT";
 
-    } else {
+    const STORAGE_KEY = "nachtbote_station_" + STATION;
 
-        document.getElementById("success").style.display = "none";
-        document.getElementById("wrong").style.display = "block";
+
+    /*
+     * Prüft, ob Station bereits gelöst wurde.
+     */
+
+    function isSolved() {
+
+        return localStorage.getItem(STORAGE_KEY) === "solved";
 
     }
-}
+
+
+    /*
+     * Zeigt den Erfolg an.
+     */
+
+    function showSuccess() {
+
+        document.getElementById("success").style.display = "block";
+
+        document.getElementById("wrong").style.display = "none";
+
+    }
+
+
+    /*
+     * Prüft die eingegebene Lösung.
+     */
+
+    function checkAnswer() {
+
+        const input =
+            document.getElementById("answer");
+
+        const answer =
+            input.value
+                .trim()
+                .toUpperCase();
+
+        if (answer === SOLUTION) {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                "solved"
+            );
+
+            showSuccess();
+
+            /*
+             * Springt automatisch zum
+             * freigeschalteten Bereich.
+             */
+
+            setTimeout(function() {
+
+                document
+                    .getElementById("success")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            }, 100);
+
+        } else {
+
+            document.getElementById("wrong").style.display = "block";
+
+        }
+
+    }
+
+
+    /*
+     * Wenn die Station bereits gelöst wurde,
+     * wird sie beim erneuten Öffnen automatisch
+     * wieder freigeschaltet.
+     */
+
+    window.addEventListener("DOMContentLoaded", function() {
+
+        if (isSolved()) {
+
+            showSuccess();
+
+        }
+
+    });
+
+
+    /*
+     * ENTER-Taste funktioniert ebenfalls.
+     */
+
+    document
+        .getElementById("answer")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                checkAnswer();
+
+            }
+
+        });
 
 </script>
 
