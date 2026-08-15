@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Der letzte Bote von Königstein</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #080b0f;
+            color: #ddd;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 35px 22px 60px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d6c28a;
+            font-size: 2.1rem;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #d6c28a;
+            font-weight: normal;
+            border-bottom: 1px solid #454545;
+            padding-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        .story {
+            background: #10151b;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+        }
+
+        .quote {
+            border-left: 3px solid #d6c28a;
+            padding-left: 18px;
+            color: #cfcfcf;
+            font-style: italic;
+        }
+
+        .puzzle {
+            background: #111820;
+            border: 1px solid #454545;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            margin-top: 12px;
+            background: #080b0f;
+            color: white;
+            border: 1px solid #666;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            background: #6d5b32;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #85703e;
+        }
+
+        #wrong {
+            display: none;
+            color: #d77;
+            margin-top: 15px;
+        }
+
+        #success {
+            display: none;
+            background: #111c16;
+            border: 1px solid #536b59;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 25px;
+        }
+
+        .light {
+            text-align: center;
+            font-size: 2rem;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Der letzte Bote von Königstein</h1>
+
+    <div class="subtitle">
+        Nachtcache · Station 1
+    </div>
+
+    <div class="light">🌙</div>
+
+    <div class="story">
+
+        <h2>Der erste Funke</h2>
+
+        <p>
+            Königstein, Oktober 1813.
+        </p>
+
+        <p>
+            Die Nacht liegt schwer über dem Elbtal.
+            Hoch über der Stadt zeichnet sich die dunkle Silhouette
+            des Königsteins gegen den Himmel ab.
+        </p>
+
+        <p>
+            Ein junger Mann hastet durch die Dunkelheit.
+            Sein Name ist Johann Elias Weber.
+        </p>
+
+        <p>
+            In seinem Mantel trägt er einen Brief.
+            Einen Brief, den niemand finden darf.
+        </p>
+
+        <p>
+            Plötzlich bleibt Johann stehen.
+        </p>
+
+        <p>
+            Hinter ihm erscheint ein Licht.
+        </p>
+
+        <p>
+            Dann ein zweites.
+        </p>
+
+        <p class="quote">
+            „Sie haben mich gefunden.“
+        </p>
+
+        <p>
+            Johann greift in seine Tasche und zieht den Brief hervor.
+            Doch er verbrennt ihn nicht.
+        </p>
+
+        <p>
+            Stattdessen zerreißt er ihn in fünf Teile.
+        </p>
+
+        <p>
+            Fünf Spuren.
+            Fünf Wege.
+            Fünf Lichter.
+        </p>
+
+        <p>
+            Den ersten Teil versteckt er dort, wo nur jemand danach
+            suchen würde, der weiß, dass er existiert.
+        </p>
+
+        <p class="quote">
+            „Wenn du diese Nachricht lesen kannst,
+            hast du meine erste Spur gefunden.“
+        </p>
+
+        <p>
+            Dann schreibt Johann auf die Rückseite des ersten Hinweises:
+        </p>
+
+        <p class="quote">
+            Nichts ist zu sehen.<br>
+            Aber etwas wartet.<br>
+            Chaos wird zu Ordnung.<br>
+            Hat man die richtige Richtung,<br>
+            Taucht der erste Weg auf.
+        </p>
+
+        <p>
+            Johann wusste, dass sein Verfolger die Nachricht finden könnte.
+            Deshalb versteckte er die Lösung nicht im Text selbst.
+        </p>
+
+        <p>
+            <strong>
+                Suche nach dem, was am Anfang jeder Zeile steht.
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="puzzle">
+
+        <h2>Die erste Spur</h2>
+
+        <p>
+            Welches Wort ergibt sich aus den Anfangsbuchstaben
+            der fünf Zeilen?
+        </p>
+
+        <input
+            type="text"
+            id="answer"
+            placeholder="Lösungswort eingeben"
+            autocomplete="off"
+        >
+
+        <button onclick="checkAnswer()">
+            Spur entschlüsseln
+        </button>
+
+        <div id="wrong">
+            Das ist nicht die richtige Lösung.
+            Johann würde sagen: „Suche genauer.“
+        </div>
+
+    </div>
+
+
+    <div id="success">
+
+        <h2>Die Spur ist gefunden.</h2>
+
+        <p>
+            Die fünf Buchstaben ergeben:
+        </p>
+
+        <p class="quote">
+            N · A · C · H · T
+        </p>
+
+        <p>
+            Du hast die erste Nachricht entschlüsselt.
+        </p>
+
+        <p>
+            Doch Johann hat keinen weiteren Hinweis
+            hinterlassen.
+        </p>
+
+        <p>
+            Stattdessen steht dort nur:
+        </p>
+
+        <p class="quote">
+            „Nun wird es Zeit, die Dunkelheit zu durchsuchen.“
+        </p>
+
+        <p>
+            Schalte deine Taschenlampe ein.
+        </p>
+
+        <p>
+            Suche den ersten Lichtpunkt.
+        </p>
+
+        <p>
+            <strong>
+                Folge der Reflektorstrecke.
+            </strong>
+        </p>
+
+        <p>
+            Wenn du das nächste Licht gefunden hast,
+            wartet dort die zweite Spur des Nachtboten.
+        </p>
+
+    </div>
+
+
+    <div class="footer">
+        Der letzte Bote von Königstein · Station 1
+    </div>
+
+</div>
+
+
+<script>
+
+function checkAnswer() {
+
+    const answer =
+        document.getElementById("answer").value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "NACHT") {
+
+        document.getElementById("success").style.display = "block";
+        document.getElementById("wrong").style.display = "none";
+
+    } else {
+
+        document.getElementById("success").style.display = "none";
+        document.getElementById("wrong").style.display = "block";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
