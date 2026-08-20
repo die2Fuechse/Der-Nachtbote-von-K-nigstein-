@@ -788,17 +788,255 @@ function checkStation1() {
     }
 }
 
+/* =========================================================
+   STATION 4
+   ========================================================= */
 
+function showStation4() {
+
+    subtitle.textContent = "Nachtcache · Station 4";
+
+    content.innerHTML = `
+
+        <div class="light">⚡</div>
+
+        <div class="story">
+
+            <h2>Das Zeichen im Baum</h2>
+
+            <p>
+                Johann ging weiter.
+            </p>
+
+            <p>
+                Der Weg wurde stiller.
+            </p>
+
+            <p>
+                Kein Licht war hinter ihm zu sehen.
+                Kein Geräusch verriet,
+                dass seine Verfolger ihm noch folgten.
+            </p>
+
+            <p>
+                Doch Johann wusste es besser.
+            </p>
+
+            <p>
+                Er hatte gelernt,
+                dass man einen Verfolger nicht daran erkennt,
+                dass man ihn sieht.
+            </p>
+
+            <p>
+                Sondern daran,
+                dass die Spuren hinter einem plötzlich verschwinden.
+            </p>
+
+            <p>
+                Nach einer Weile erreichte er einen alten Baum.
+            </p>
+
+            <p>
+                Ein Blitz hatte ihn einst getroffen.
+            </p>
+
+            <p>
+                Der Stamm war gezeichnet,
+                aber der Baum stand noch immer.
+            </p>
+
+            <p class="quote">
+                „Manche Zeichen überleben den Sturm.“
+            </p>
+
+            <p>
+                Johann nahm den vierten Teil seines Briefes hervor.
+            </p>
+
+            <p>
+                Diesmal war darauf keine Nachricht geschrieben.
+            </p>
+
+            <p>
+                Nur ein kleines Zeichen.
+            </p>
+
+            <p>
+                Johann sah sich um.
+            </p>
+
+            <p>
+                Dann versteckte er den Hinweis dort,
+                wo nur jemand suchen würde,
+                der wusste, dass der Baum selbst die Antwort
+                nicht gab.
+            </p>
+
+            <p class="quote">
+                „Wer nur nach mir sucht,
+                wird mich nicht finden.“
+            </p>
+
+            <p>
+                Dann verschwand er wieder in der Dunkelheit.
+            </p>
+
+        </div>
+
+
+        <div class="puzzle">
+
+            <h2>Das vierte Zeichen</h2>
+
+            <p>
+                Johann hat diesmal kein Wort hinterlassen.
+            </p>
+
+            <p>
+                Er wusste,
+                dass ein Wort gefunden werden kann.
+            </p>
+
+            <p>
+                Ein Zeichen hingegen
+                muss man <strong>erkennen</strong>.
+            </p>
+
+            <p>
+                Schalte deine Taschenlampe ein.
+            </p>
+
+            <p>
+                Suche in der Nähe nach einem Zeichen aus Licht.
+            </p>
+
+            <p>
+                <strong>
+                    Zähle die Lichtpunkte.
+                </strong>
+            </p>
+
+            <p>
+                Die Zahl ist der Schlüssel.
+            </p>
+
+            <input
+                type="number"
+                id="answer4"
+                placeholder="Anzahl der Lichtpunkte"
+                inputmode="numeric"
+            >
+
+            <button onclick="checkStation4()">
+                Zeichen entschlüsseln
+            </button>
+
+            <div id="wrong4" class="wrong">
+                Das kann nicht stimmen.
+                Schau noch einmal genau hin.
+            </div>
+
+        </div>
+
+
+        <div id="success4" class="success">
+
+            <h2>Das Zeichen ist verstanden.</h2>
+
+            <p>
+                Sechs Lichter.
+            </p>
+
+            <p>
+                Johann hat gewusst,
+                dass nur jemand,
+                der genau hinsieht,
+                sie erkennen würde.
+            </p>
+
+            <p>
+                Unter dem Zeichen stand eine letzte Nachricht:
+            </p>
+
+            <p class="quote">
+                „Sechs Lichter zeigen dir, wo ich war.<br>
+                Doch der Weg, den du suchst, beginnt dort,
+                wo das Licht endet.“
+            </p>
+
+            <p>
+                Folge der Reflektorstrecke.
+            </p>
+
+            <p>
+                Sie führt dich weiter über den Heideberg.
+            </p>
+
+            <p>
+                <strong>
+                    Diesmal gibt es keinen falschen Weg.
+                </strong>
+            </p>
+
+            <p>
+                Johann hat seine Verfolger bereits abgeschüttelt.
+            </p>
+
+            <p class="quote">
+                „Oder zumindest glaubt er das …“
+            </p>
+
+        </div>
+
+    `;
+}
+
+
+/* =========================================================
+   LÖSUNG STATION 4
+   ========================================================= */
+
+function checkStation4() {
+
+    const answer = document
+        .getElementById("answer4")
+        .value
+        .trim();
+
+    if (answer === "6") {
+
+        document.getElementById("success4").style.display = "block";
+        document.getElementById("wrong4").style.display = "none";
+
+    } else {
+
+        document.getElementById("success4").style.display = "none";
+        document.getElementById("wrong4").style.display = "block";
+
+    }
+}
 /* =========================================================
    STATION AUSWÄHLEN
    ========================================================= */
 
 if (station === "2") {
+
     showStation2();
+
 } else if (station === "3") {
+
     showStation3();
+
+} else if (station === "4") {
+
+    showStation4();
+
 } else {
+
     showStation1();
+
+}
 }
 
 </script>
