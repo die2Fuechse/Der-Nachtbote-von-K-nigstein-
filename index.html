@@ -540,6 +540,8 @@ function showStation2() {
 
     `;
 }
+
+
 /* =========================================================
    STATION 3
    ========================================================= */
@@ -763,30 +765,6 @@ function showStation3() {
     `;
 }
 
-/* =========================================================
-   LÖSUNG STATION 1
-   ========================================================= */
-
-function checkStation1() {
-
-    const answer = document
-        .getElementById("answer1")
-        .value
-        .trim()
-        .toUpperCase();
-
-    if (answer === "NACHT") {
-
-        document.getElementById("success1").style.display = "block";
-        document.getElementById("wrong1").style.display = "none";
-
-    } else {
-
-        document.getElementById("success1").style.display = "none";
-        document.getElementById("wrong1").style.display = "block";
-
-    }
-}
 
 /* =========================================================
    STATION 4
@@ -869,7 +847,8 @@ function showStation4() {
             <p>
                 Dann versteckte er den Hinweis dort,
                 wo nur jemand suchen würde,
-                der wusste, dass der Baum selbst die Antwort
+                der wusste,
+                dass der Baum selbst die Antwort
                 nicht gab.
             </p>
 
@@ -961,8 +940,8 @@ function showStation4() {
 
             <p class="quote">
                 „Sechs Lichter zeigen dir, wo ich war.<br>
-                Doch der Weg, den du suchst, beginnt dort,
-                wo das Licht endet.“
+                Doch der Weg, den du suchst,
+                beginnt dort, wo das Licht endet.“
             </p>
 
             <p>
@@ -994,6 +973,32 @@ function showStation4() {
 
 
 /* =========================================================
+   LÖSUNG STATION 1
+   ========================================================= */
+
+function checkStation1() {
+
+    const answer = document
+        .getElementById("answer1")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (answer === "NACHT") {
+
+        document.getElementById("success1").style.display = "block";
+        document.getElementById("wrong1").style.display = "none";
+
+    } else {
+
+        document.getElementById("success1").style.display = "none";
+        document.getElementById("wrong1").style.display = "block";
+
+    }
+}
+
+
+/* =========================================================
    LÖSUNG STATION 4
    ========================================================= */
 
@@ -1016,6 +1021,8 @@ function checkStation4() {
 
     }
 }
+
+
 /* =========================================================
    STATION AUSWÄHLEN
    ========================================================= */
@@ -1036,7 +1043,6 @@ if (station === "2") {
 
     showStation1();
 
-}
 }
 
 </script>
